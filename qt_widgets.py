@@ -1,42 +1,41 @@
-from PyQt6 import QtWidgets as qtw
-from PyQt6.QtCore import *
-from PyQt6.QtGui import *
+from PyQt6.QtWidgets import QApplication, QVBoxLayout, QWidget, QLabel, QComboBox, QCheckBox, QLineEdit, QRadioButton, QSlider, QPushButton, QMainWindow
+from PyQt6.QtCore import Qt
 
 
 # Subclass QMainWindow to customise your application's main window
-class MainWindow(qtw.QMainWindow):
+class MainWindow(QMainWindow):
 
     def __init__(self):
         super(MainWindow, self).__init__()
         
         self.setWindowTitle("My Awesome App")
 
-        layout = qtw.QVBoxLayout()
+        layout = QVBoxLayout()
 
-        layout.addWidget(qtw.QLabel("Widget Demo"))
+        layout.addWidget(QLabel("Widget Demo"))
 
-        self.combo = qtw.QComboBox()
+        self.combo = QComboBox()
         self.combo.addItems(["One", "Two", "Three", "Four"])
         layout.addWidget(self.combo)
 
-        layout.addWidget(qtw.QCheckBox("Choose this"))
-        layout.addWidget(qtw.QCheckBox("and this?"))
+        layout.addWidget(QCheckBox("Choose this"))
+        layout.addWidget(QCheckBox("and this?"))
 
-        layout.addWidget(qtw.QLineEdit("Type here"))
+        layout.addWidget(QLineEdit("Type here"))
 
-        layout.addWidget(qtw.QRadioButton("This one?"))
-        layout.addWidget(qtw.QRadioButton("Or this one?"))
+        layout.addWidget(QRadioButton("This one?"))
+        layout.addWidget(QRadioButton("Or this one?"))
 
-        self.slider = qtw.QSlider(Qt.Orientation.Horizontal)
+        self.slider = QSlider(Qt.Orientation.Horizontal)
         self.slider.setMinimum(0)
         self.slider.setMaximum(100)
         self.slider.setValue(80)
         layout.addWidget(self.slider)
 
-        layout.addWidget(qtw.QPushButton("Ok"))
-        layout.addWidget(qtw.QPushButton("Cancel"))
+        layout.addWidget(QPushButton("Ok"))
+        layout.addWidget(QPushButton("Cancel"))
         
-        widget = qtw.QWidget()
+        widget = QWidget()
         widget.setLayout(layout)
         
         # Set the central widget of the Window. Widget will expand
@@ -47,7 +46,7 @@ class MainWindow(qtw.QMainWindow):
 # You need one (and only one) QApplication instance per application.
 # Pass in sys.argv to allow command line arguments for your app.
 # If you know you won't use command line arguments QApplication([]) works too.
-app = qtw.QApplication([])
+app = QApplication([])
 
 window = MainWindow()
 window.show() # IMPORTANT!!!!! Windows are hidden by default.
