@@ -1,20 +1,20 @@
-import PyQt6.QtWidgets as qtw
-# import PyQt6.QtCore as qtc
-# import PyQt6.QtGui as qtg
+from PyQt6.QtWidgets import QApplication, QVBoxLayout, QWidget, QLabel, QMainWindow
+from PyQt6.QtCore import Qt
+
 
 
 # Subclass QMainWindow to customise your application's main window
-class MainWindow(qtw.QMainWindow):
+class MainWindow(QMainWindow):
 
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Template Window")
 
-        layout = qtw.QVBoxLayout()
-        self.label = qtw.QLabel("Demo")
+        layout = QVBoxLayout()
+        self.label = QLabel("Demo")
         layout.addWidget(self.label)
         
-        widget = qtw.QWidget()
+        widget = QWidget()
         widget.setLayout(layout)
         
         # Set the central widget of the Window. Widget will expand
@@ -25,7 +25,7 @@ class MainWindow(qtw.QMainWindow):
 # You need one (and only one) QApplication instance per application.
 # Pass in sys.argv to allow command line arguments for your app.
 # If you know you won't use command line arguments QApplication([]) works too.
-app = qtw.QApplication([])
+app = QApplication([])
 
 window = MainWindow()
 window.show()
