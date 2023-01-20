@@ -4,9 +4,8 @@ from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow, \
 import PyQt6.QtCore as qtc 
 
 class MainWindow(QMainWindow):
-    def __init__(self, app):
+    def __init__(self):
         super().__init__()
-        self.app = app
         self.setWindowTitle("Signals and Slots")
 
         layout = QVBoxLayout()
@@ -55,13 +54,13 @@ class MainWindow(QMainWindow):
 
     def quit(self):
         pass
-    
+
 
 
 
 app = QApplication(sys.argv)
 
-window = MainWindow(app)
+window = MainWindow()
 window.show()
 
 app.exec()
